@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "343f2651-a8aa-404d-8690-9651dfb974d7",
+		"name": "Postman_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost_get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:{{port}}?test_k1=10&test_k2=abc",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"query": [
+						{
+							"key": "test_k1",
+							"value": "10"
+						},
+						{
+							"key": "test_k2",
+							"value": "abc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost_post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:{{port}}",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}"
+				}
+			},
+			"response": []
+		}
+	]
+}
