@@ -14,7 +14,9 @@ server = start_server(PORT)
 collection = Postman.load(test_collection_fn)
 
 for item in collection
-    response = Postman.run(item, variables=Dict("port" => PORT))
+    @info "Process item: " * item.name # filter by name if required
+
+    @time response = Postman.run(item, variables=Dict("port" => PORT))
     @info response
     @test occursin(item.request.method, String(response.body))
 end

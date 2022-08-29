@@ -11,9 +11,16 @@ using Postman
 using HTTP
 
 collection = Postman.load("postman_collection.json")
-response::HTTP.Response = Postman.run(item, variables=Dict("port" => PORT))
 
-dump(response)
+for item in collection
+    @info "Process item: " * item.name # filter by name if required
+
+    @time response::HTTP.Messages.Response = Postman.run(
+        item, variables=Dict("port" => PORT)
+    )
+
+    dump(response)
+end
 ```
 
 Variables might be used for URLs only. For a string with `{{va1}}` markup all the occurrences will be removed or replaced by values of the same variables names provided through `variables` keyword argument.
