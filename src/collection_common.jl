@@ -24,7 +24,7 @@ struct Url
     protocol::Union{String,Nothing}
     host::Union{String,Vector{String},Nothing}
 
-    path::Union{String,Dict,Nothing}
+    path::Union{String,Vector,Nothing}
     port::Union{String,Nothing}
     query::Union{Vector,Nothing}
     hash::Union{String,Nothing}
